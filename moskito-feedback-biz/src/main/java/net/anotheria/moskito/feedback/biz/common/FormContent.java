@@ -2,59 +2,70 @@ package net.anotheria.moskito.feedback.biz.common;
 
 /**
  * @author andriiskrypnyk
- *
+ *         <p/>
  *         Content of the form filled up by customer
  */
 
 public class FormContent {
 
-    private String firstName;
+    private String fName;
 
-    private String lastName;
+    private String lName;
 
-    private String companyEmail;
+    private String email;
 
-    private String description;
+    private String company;
 
-    public String getFirstName() {
-        return firstName;
+    private String note;
+
+    public String getfName() {
+        return fName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setfName(String fName) {
+        this.fName = fName;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getlName() {
+        return lName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setlName(String lName) {
+        this.lName = lName;
     }
 
-    public String getCompanyEmail() {
-        return companyEmail;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCompanyEmail(String companyEmail) {
-        this.companyEmail = companyEmail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getDescription() {
-        return description;
+    public String getCompany() {
+        return company;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setCompany(String company) {
+        this.company = company;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
     }
 
     @Override
     public String toString() {
         return "FormContent{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", companyEmail='" + companyEmail + '\'' +
-                ", description='" + description + '\'' +
+                "fName='" + fName + '\'' +
+                ", lName='" + lName + '\'' +
+                ", email='" + email + '\'' +
+                ", company='" + company + '\'' +
+                ", note='" + note + '\'' +
                 '}';
     }
 }

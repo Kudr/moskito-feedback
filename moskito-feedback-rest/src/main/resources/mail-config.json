@@ -1,0 +1,9 @@
+{
+  "smtpAuth": "true",
+  "smtpStarttls": "true",
+  "smtpHost": "smtp.gmail.com",
+  "smtpPort": "587",
+  "username": "moskito.feedback@gmail.com",
+  "password": "2ez7FrkQ9AWGgbqH",
+  "emailToNotificate":"skrypnik.andrey@gmail.com"
+}
