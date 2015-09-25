@@ -32,7 +32,7 @@
 
     <servlet-mapping>
         <servlet-name>Jersey</servlet-name>
-        <url-pattern>/feedback/*</url-pattern>
+        <url-pattern>/*</url-pattern>
     </servlet-mapping>
 
 </web-app>

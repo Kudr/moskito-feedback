@@ -34,11 +34,11 @@ public class MailContentLoader implements ContentLoader {
 
     public String createHTMLEmailContent(FormContent formContent) {
         String htmlEmailContent = template;
-        htmlEmailContent = htmlEmailContent.replace(FIRST_NAME, formContent.getfName());
-        htmlEmailContent = htmlEmailContent.replace(LAST_NAME, formContent.getlName());
-        htmlEmailContent = htmlEmailContent.replace(EMAIL, formContent.getEmail());
-        htmlEmailContent = htmlEmailContent.replace(COMPANY, formContent.getCompany());
-        htmlEmailContent = htmlEmailContent.replace(NOTE, formContent.getNote());
+        htmlEmailContent = htmlEmailContent.replace(FIRST_NAME, formContent.getfName())
+                .replace(LAST_NAME, formContent.getlName())
+                .replace(EMAIL, formContent.getEmail())
+                .replace(COMPANY, formContent.getCompany())
+                .replace(NOTE, formContent.getNote());
         return htmlEmailContent;
     }
 
