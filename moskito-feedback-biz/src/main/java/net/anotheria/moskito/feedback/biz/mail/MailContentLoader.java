@@ -36,8 +36,8 @@ public class MailContentLoader implements ContentLoader {
         String htmlEmailContent = template;
         htmlEmailContent = htmlEmailContent.replace(FIRST_NAME, formContent.getfName())
                 .replace(LAST_NAME, formContent.getlName())
-                .replace(EMAIL, formContent.getEmail())
-                .replace(COMPANY, formContent.getCompany())
+                .replace(EMAIL, formContent.getcEmail())
+                .replace(COMPANY, formContent.getcCompany())
                 .replace(NOTE, formContent.getNote());
         return htmlEmailContent;
     }

@@ -1,5 +1,7 @@
 package net.anotheria.moskito.feedback.biz.common;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * @author andriiskrypnyk
  *         <p/>
@@ -12,11 +14,12 @@ public class FormContent {
 
     private String lName;
 
-    private String email;
+    private String cEmail;
 
-    private String company;
+    private String cCompany;
 
-    private String note;
+    @JsonProperty("Note")
+    private String Note;
 
     public String getfName() {
         return fName;
@@ -34,28 +37,28 @@ public class FormContent {
         this.lName = lName;
     }
 
-    public String getEmail() {
-        return email;
+    public String getcEmail() {
+        return cEmail;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setcEmail(String cEmail) {
+        this.cEmail = cEmail;
     }
 
-    public String getCompany() {
-        return company;
+    public String getcCompany() {
+        return cCompany;
     }
 
-    public void setCompany(String company) {
-        this.company = company;
+    public void setcCompany(String cCompany) {
+        this.cCompany = cCompany;
     }
 
     public String getNote() {
-        return note;
+        return Note;
     }
 
     public void setNote(String note) {
-        this.note = note;
+        this.Note = note;
     }
 
     @Override
@@ -63,9 +66,9 @@ public class FormContent {
         return "FormContent{" +
                 "fName='" + fName + '\'' +
                 ", lName='" + lName + '\'' +
-                ", email='" + email + '\'' +
-                ", company='" + company + '\'' +
-                ", note='" + note + '\'' +
+                ", cEmail='" + cEmail + '\'' +
+                ", cCompany='" + cCompany + '\'' +
+                ", Note='" + Note + '\'' +
                 '}';
     }
 }

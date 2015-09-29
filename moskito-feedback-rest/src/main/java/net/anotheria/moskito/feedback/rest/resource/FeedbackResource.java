@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 
 /**
  * @author askrypnyk
@@ -16,6 +17,8 @@ import javax.ws.rs.*;
 @Path("/")
 @Component
 @Scope
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 public class FeedbackResource {
 
     @Autowired
@@ -44,8 +47,8 @@ public class FeedbackResource {
         FormContent formContent = new FormContent();
         formContent.setfName(fName);
         formContent.setlName(lName);
-        formContent.setEmail(email);
-        formContent.setCompany(company);
+        formContent.setcEmail(email);
+        formContent.setcCompany(company);
         formContent.setNote(note);
 
         try {
