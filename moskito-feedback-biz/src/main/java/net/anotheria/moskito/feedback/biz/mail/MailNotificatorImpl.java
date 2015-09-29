@@ -85,7 +85,7 @@ public class MailNotificatorImpl implements MailNotificator {
         Message message = new MimeMessage(session);
         try {
             message.setFrom(new InternetAddress(config.getUsername()));
-            message.setRecipient(Message.RecipientType.TO, new InternetAddress(config.getEmailToNotificate()));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(config.getEmailToNotificate()));
             message.setSubject(SUBJECT);
             message.setContent(content, "text/html; charset=utf-8");
         } catch (MessagingException e) {
