@@ -10,7 +10,8 @@ import java.io.IOException;
  */
 public class CrossDomainFilter implements Filter {
 
-    public static final String ORIGIN = "http://sergiichuk.com";
+    public static final String[] ALLOWED_HOSTS = new String[]{"http://sergiichuk.com", " http://moskito.org"};
+
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -24,9 +25,11 @@ public class CrossDomainFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
 
-        if (request.getHeader("origin") != null && request.getHeader("origin").equalsIgnoreCase(ORIGIN)) {
-            response.setHeader("Access-Control-Allow-Origin", ORIGIN);
-            response.addHeader("Access-Control-Allow-Headers", "X-PINGOTHER, Origin, X-Requested-With, Content-Type, Accept");
+        for (String allowedHost : ALLOWED_HOSTS) {
+            if (request.getHeader("origin") != null && request.getHeader("origin").equalsIgnoreCase(allowedHost)) {
+                response.setHeader("Access-Control-Allow-Origin", allowedHost);
+                response.addHeader("Access-Control-Allow-Headers", "X-PINGOTHER, Origin, X-Requested-With, Content-Type, Accept");
+            }
         }
 
         response.setHeader("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS");
