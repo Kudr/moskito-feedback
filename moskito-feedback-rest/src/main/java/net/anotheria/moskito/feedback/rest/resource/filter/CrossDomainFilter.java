@@ -10,8 +10,8 @@ import java.io.IOException;
  */
 public class CrossDomainFilter implements Filter {
 
-    public static final String[] ALLOWED_HOSTS = new String[]{"http://sergiichuk.com", " http://moskito.org"};
 
+    private static final String ORIGIN = "*";
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -21,19 +21,14 @@ public class CrossDomainFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         if (!(servletResponse instanceof HttpServletResponse))
             return;
-
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
-
-        for (String allowedHost : ALLOWED_HOSTS) {
-            if (request.getHeader("origin") != null && request.getHeader("origin").equalsIgnoreCase(allowedHost)) {
-                response.setHeader("Access-Control-Allow-Origin", allowedHost);
-                response.addHeader("Access-Control-Allow-Headers", "X-PINGOTHER, Origin, X-Requested-With, Content-Type, Accept");
-            }
+        if (request.getHeader("origin") != null) {
+            response.setHeader("Access-Control-Allow-Origin", ORIGIN);
+            response.addHeader("Access-Control-Allow-Headers", "X-PINGOTHER, Origin, X-Requested-With, Content-Type, Accept");
         }
 
         response.setHeader("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS");
-//		response.setHeader("Access-Control-Allow-Credentials", "true");
         filterChain.doFilter(servletRequest, servletResponse);
     }
 
