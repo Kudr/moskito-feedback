@@ -1,7 +1,6 @@
 package net.anotheria.moskito.feedback.biz;
 
 import net.anotheria.moskito.feedback.biz.common.FormContent;
-import net.anotheria.moskito.feedback.biz.mail.MailConfig;
 import net.anotheria.moskito.feedback.biz.mail.MailNotificator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,8 +21,14 @@ public class FeedbackServiceImpl implements FeedbackService {
     private MailNotificator mailNotificator;
 
     @Override
-    public void handleFeedback(FormContent formContent) throws FeedbackServiceException {
-        mailNotificator.notificate(formContent);
-        LOG.info("Notification was sent: " + formContent);
+    public void handleFeedback(final FormContent formContent) throws FeedbackServiceException {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                mailNotificator.notificate(formContent);
+                LOG.info("Notification was sent: " + formContent);
+            }
+        }).start();
+
     }
 }

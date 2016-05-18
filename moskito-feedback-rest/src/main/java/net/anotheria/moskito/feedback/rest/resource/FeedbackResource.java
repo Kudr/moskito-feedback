@@ -42,6 +42,7 @@ public class FeedbackResource {
                                                @FormParam("lName") String lName,
                                                @FormParam("cEmail") String email,
                                                @FormParam("cCompany") String company,
+                                               @FormParam("typeRequest") String tRequest,
                                                @FormParam("Note") String note) {
 
         FormContent formContent = new FormContent();
@@ -49,6 +50,7 @@ public class FeedbackResource {
         formContent.setlName(lName);
         formContent.setcEmail(email);
         formContent.setcCompany(company);
+        formContent.setTypeRequest(tRequest);
         formContent.setNote(note);
 
         try {

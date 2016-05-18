@@ -18,6 +18,8 @@ public class FormContent {
 
     private String cCompany;
 
+    private String typeRequest;
+
     @JsonProperty("Note")
     private String Note;
 
@@ -53,6 +55,14 @@ public class FormContent {
         this.cCompany = cCompany;
     }
 
+    public String getTypeRequest() {
+        return typeRequest;
+    }
+
+    public void setTypeRequest(String typeRequest) {
+        this.typeRequest = typeRequest;
+    }
+
     public String getNote() {
         return Note;
     }
@@ -68,6 +78,7 @@ public class FormContent {
                 ", lName='" + lName + '\'' +
                 ", cEmail='" + cEmail + '\'' +
                 ", cCompany='" + cCompany + '\'' +
+                ", typeRequest='" + typeRequest + '\'' +
                 ", Note='" + Note + '\'' +
                 '}';
     }

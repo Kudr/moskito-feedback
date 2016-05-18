@@ -22,6 +22,7 @@ public class MailContentLoader implements ContentLoader {
     private static final String LAST_NAME = "${lName}";
     private static final String EMAIL = "${email}";
     private static final String COMPANY = "${company}";
+    private static final String TYPE_REQUEST = "${request}";
     private static final String NOTE = "${note}";
 
 
@@ -37,11 +38,12 @@ public class MailContentLoader implements ContentLoader {
         htmlEmailContent = htmlEmailContent.replace(FIRST_NAME, formContent.getfName())
                 .replace(LAST_NAME, formContent.getlName())
                 .replace(EMAIL, formContent.getcEmail())
-                .replace(COMPANY, formContent.getcCompany())
+                .replace(COMPANY, formContent.getcCompany()).
+                        replace(TYPE_REQUEST, formContent.getTypeRequest() != null
+                                ? formContent.getTypeRequest() : "Was skipped")
                 .replace(NOTE, formContent.getNote());
         return htmlEmailContent;
     }
-
 
     private void loadHtmlTemplate() {
         try {
